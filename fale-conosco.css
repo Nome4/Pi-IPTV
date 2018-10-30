@@ -1,0 +1,20 @@
+#form{
+  background-color: rgba(0,0,0,0.1);
+  padding: 12px 20px;
+}
+.formDiv{
+  display: flex;
+  justify-content: center;
+}
+.formDiv label,.formDiv textarea, .formDiv input{
+  display: block;
+}
+[name="nome"]{
+  width: 300px;
+}
+[name="email"]{
+  width: 225px;
+}
+[name="telefone"]{
+  width: 150px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr" class="semJS">
+  <head>
+    <meta charset="utf-8">
+    <title>Pi IPTV - Como usar</title>
+    <link rel="stylesheet" href="todos.css">
+    <link rel="stylesheet" href="como-usar.css">
+    <!-- Colocar Meta Tags! -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  </head>
+  <body>
+    <nav>
+      <div id="aaa">
+        <a href="index.html">Home</a>
+        <a href="lista-de-canais.html">Lista de canais</a>
+        <a href="fale-conosco.html">Fale conosco</a>
+      </div>
+      <div id="resizer">
+        <button>
+          <img title="Expandir/Colapsar" src="https://vignette.wikia.nocookie.net/community-sitcom/images/4/4a/Arrow_right.png/revision/latest?cb=20131015142412">
+        </button>
+      </div>
+    </nav>
+    <main>
+      <header class="padrao">
+        <div>
+          <h1>Como usar</h1>
+          <hr>
+        </div>
+      </header>
+      <div class="texto" id="txtInicial">
+        <h2 class="margemMenor">Selecione seu dispositivo</h2>
+        <p>Através de qual dispositivo você deseja usar o IPTV?</p>
+      </div>
+      <div id="escolherDisp">
+        <div>
+          <button>Smart TV</button>
+          <button>Celular Android ou TV Box</button>
+        </div>
+        <div>
+          <button>IOS - Iphone e Ipad</button>
+          <button>Computador Windows</button>
+        </div>
+      </div>
+    </main>
+    <div id="slide" class="superOculto">
+      <h2 id="passo" class="margemMenor">Passo <span id="passoAtual"></span>/<span id="numPassos"></span></h2>
+      <div id="mostra"></div>
+      <div id="controles">
+        <button class="soCel">&lt;&lt;</button>
+        <button>&lt;</button>
+        <div id="mudaSlide"></div>
+        <button>&gt;</button>
+        <button class="soCel">&gt;&gt;</button>
+      </div>
+    </div>
+    <script src="todos.js"></script>
+    <script src="como-usar.js"></script>
+  </body>
+</html>

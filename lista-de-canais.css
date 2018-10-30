@@ -1,0 +1,180 @@
+/* Search */
+
+#searchContainer{
+  position: relative;
+  margin: 0 auto 29px;
+}
+
+#search{
+  position: relative;
+  margin: 4px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#search input{
+  display: block;
+  font-size: 16px;
+  padding:2px 8px 2px 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  border-radius: 12px;
+  border: 1px solid #bfbfbf;
+  background-color: #efefef;
+  margin-right:2%;
+}
+@media (min-width:600px) {
+  #search input{
+    margin-right: 10px;
+  }
+}
+#search.focado input{
+  padding-left:8px;
+}
+
+#search::after{
+  content: "";
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:8px;
+  right:0;
+  background-image:url("https://www.shareicon.net/download/2015/12/03/681738_search.svg");
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  opacity: 0;
+  pointer-events: none;
+}
+#search:not(.focado)::after{
+  opacity: 0.5;
+}
+
+#result{
+  margin-top:18px;
+}
+#result+:not(:empty){
+  margin-top: 12px;
+}
+
+#resultados{
+  padding: 0;
+  overflow-x: hidden;
+}
+#resultados li{
+  padding-left:0.6em;
+}
+#resultados li::before{
+  left:0;
+}
+
+
+/* Lista */
+
+#listao h2{
+  margin-bottom: 6px;
+}
+#listao>*{
+  margin-top:12px;
+}
+.colsTelaToda>*{
+  position: relative;
+  left:6px;
+}
+
+
+/* Responsivo */
+
+@media (min-width:600px){
+  #listao{
+    position: relative;
+    margin-top:-12px;
+  }
+  .colsTelaToda{
+    -webkit-columns: 2;
+            columns: 2;
+    -webkit-column-gap: 36px;
+            column-gap: 36px;
+    -webkit-column-rule: 1px solid #bfbfbf;
+            column-rule: 1px solid #bfbfbf;
+  }
+  #listao::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:12px;
+    background-color: #dfefff;
+  }
+  #listao>*{
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+@media (min-width:900px) {
+  .colsTelaToda{
+    -webkit-columns: 3;
+            columns: 3;
+  }
+}
+
+@media (min-width:1200px) {
+  .colsTelaToda{
+    -webkit-columns: 4;
+            columns: 4;
+  }
+}
+
+
+/* Transiçãozinha */
+
+@-webkit-keyframes show {
+  0%{
+    top:0;
+    visibility: visible;
+  }
+  100%{
+    top:2000px;
+    visibility: hidden;
+  }
+}
+
+@keyframes show {
+  0%{
+    top:0;
+    visibility: visible;
+  }
+  100%{
+    top:2000px;
+    visibility: hidden;
+  }
+}
+
+.animPronta .transicao{
+  position: relative;
+  overflow-y: hidden;
+}
+.animPronta .transicao::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  background-color: #dfefff;
+  left:0;
+}
+.transicao.oculto{
+  display: none;
+}
+.animPronta .transicao:not(.oculto)::after{
+  height:100%;
+  -webkit-animation: show 0.67s linear forwards;
+          animation: show 0.67s linear forwards;
+}
