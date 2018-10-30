@@ -124,7 +124,7 @@ const infoSlides=[ // Posição 0 é o passo e 1 é url da img
 ]
 
 function resizeSlide(){
-  slide.style.height=(innerHeight-(innerWidth<=500? 108: 62))+"px";
+  slide.style.height=Math.min(innerHeight-(innerWidth<=500? 108: 62),600)+"px";
   dimAnterior=innerHeight;
 }
 
@@ -198,6 +198,7 @@ function atualizaBotoes(){
 
 addEventListener("orientationchange",function () {
   if(!apareceuSlide) return;
+  
   let gambiarra=setInterval(function () {
     if(dimAnterior!=innerHeight){
       resizeSlide();
@@ -295,7 +296,8 @@ for(let i=0; i<btnsDisp.length; i++){
     // Adiciona botões de mudar slide
 
     const largMin=77,largRadio=30;
-    largControles=largMin+slides.length*largRadio;
+    largControles=largMin+slides.length*largRadio
+      +(innerWidth<1000? 0.06*innerWidth: 60); // Condizer com media query
 
     if(largControles<=slideshow.offsetWidth){
       atualizaBotoes();
@@ -312,29 +314,31 @@ for(let i=0; i<btnsDisp.length; i++){
 
     // Transição scroll
 
-    const frames=25;
+    if(innerHeight<html.offsetHeight){ // Se tem scroll
+      const frames=25;
 
-    setTimeout(function () {
-      const incr=1/frames*(html.offsetHeight-innerHeight-scrollY);
-      let scroll=scrollY;
+      setTimeout(function () {
+        const incr=1/frames*(html.offsetHeight-innerHeight-scrollY);
+        let scroll=scrollY;
 
-      function pararScroll(){
-        clearInterval(parar);
-        removeEventListener("resize",pararScroll);
-      }
-
-      addEventListener("resize",pararScroll);
-
-      let parar=setInterval(function () {
-        if(scrollY+innerHeight>=html.offsetHeight){
-          pararScroll();
-          return;
+        function pararScroll(){
+          clearInterval(parar);
+          removeEventListener("resize",pararScroll);
         }
 
-        scroll+=incr;
-        scrollTo(0,scroll);
-      },10);
-    },20);
+        addEventListener("resize",pararScroll);
+
+        let parar=setInterval(function () {
+          if(scrollY+innerHeight>=html.offsetHeight){
+            pararScroll();
+            return;
+          }
+
+          scroll+=incr;
+          scrollTo(0,scroll);
+        },10);
+      },20);
+    }
   });
 }
 

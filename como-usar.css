@@ -24,11 +24,16 @@ h2.margemMenor{
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgba(0,0,0,0.1);
-  padding:18px 60px 24px;
   overflow-x: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px 0 24px;
+}
+#slide section>*{
+  padding: 0 60px;
 }
 @media (max-width:1000px) {
-  #slide{
+  #slide section>*{
     padding-left: 6%;
     padding-right: 6%;
   }
@@ -192,7 +197,7 @@ h2.margemMenor{
 
 @-webkit-keyframes vai {
   0%{
-    left:-100vw;
+    left:-100%;
     visibility: hidden;
   }
   100%{
@@ -203,7 +208,7 @@ h2.margemMenor{
 
 @keyframes vai {
   0%{
-    left:-100vw;
+    left:-100%;
     visibility: hidden;
   }
   100%{
@@ -217,7 +222,7 @@ h2.margemMenor{
     visibility: visible;
   }
   100%{
-    left:100vw;
+    left:100%;
     visibility: hidden;
   }
 }
@@ -227,7 +232,7 @@ h2.margemMenor{
     visibility: visible;
   }
   100%{
-    left:100vw;
+    left:100%;
     visibility: hidden;
   }
 }

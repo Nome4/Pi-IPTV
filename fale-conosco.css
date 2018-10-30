@@ -1,6 +1,11 @@
 #form{
+  display: flex;
+  justify-content: center;
+}
+#formInt{
   background-color: rgba(0,0,0,0.1);
-  padding: 12px 20px;
+  font-weight: bold;
+  border: 1px solid #a8a8a8;
 }
 .formDiv{
   display: flex;
@@ -17,4 +22,26 @@
 }
 [name="telefone"]{
   width: 150px;
+}
+[name="mensagem"]{
+  width: 400px;
+  height: 200px;
+}
+input,textarea{
+  font-weight: normal;
+  font-size: 14px;
+  color:black;
+  font-family: Arial,Helvetica,sans-serif;
+}
+textarea{
+  resize: vertical;
+}
+.formDiv label{
+  padding: 8px 16px 12px;
+}
+.formDiv label:not(:last-child){
+  border-right: 1px solid #a8a8a8;
+}
+.formDiv:not(:last-child){
+  border-bottom: 1px solid #a8a8a8;
 }
